@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="SmartKraft Privacy Policy - Zero Tracking, Privacy by Design">
+    <meta name="theme-color" content="#00ff88">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <title data-tr="SmartKraft - Gizlilik Politikası" data-en="SmartKraft - Privacy Policy" data-de="SmartKraft - Datenschutzerklärung">SmartKraft - Datenschutzerklärung</title>
+    
+    <!-- Local Assets - Privacy-First Implementation -->
+    <link rel="preload" href="assets/fonts/local-fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/fonts/local-fonts.css">
+    </noscript>
+    <!-- Local Icons (Font Awesome subset) for hero background icon -->
+    <link rel="preload" href="assets/icons/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/icons/all.min.css">
+    </noscript>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/styles.css?v=1.5" as="style">
+    <link rel="preload" href="assets/js/script.js" as="script">
+    
+    <!-- CSS loading -->
+    <link href="assets/css/styles.css?v=1.5" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Header Styles from Index */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav {
+            padding: 1rem 0;
+        }
+        
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .logo-img {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .lang-selector {
+            display: flex;
+            gap: 0.25rem;
+        }
+        
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-mono);
+        }
+        
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+        
+        /* Privacy Page Styles - Based on Donate Design */
+        .privacy-hero {
+            background: var(--bg-primary);
+            padding: 113px 0 81px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 136, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .privacy-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 0%, rgba(0, 255, 136, 0.03) 25%, transparent 50%, rgba(0, 255, 136, 0.03) 75%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .privacy-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .privacy-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #ffffff 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .privacy-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .privacy-hero .subtitle {
+            font-size: 1.12rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.7;
+        }
+        
+        /* Decorative background icon for hero */
+        .hero-bg-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-bg-icon i {
+            font-size: 220px;
+            color: var(--accent);
+            opacity: 0.06;
+            filter: blur(0.2px);
+            transform: translateY(10px);
+        }
+        
+        .privacy-hero .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #00cc6a 100%);
+            color: var(--bg-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+            transition: transform 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .privacy-content {
+            padding: 56px 0 80px;
+            background: var(--bg-secondary);
+        }
+        
+        .privacy-section {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .privacy-section h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .privacy-section h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+        
+        .privacy-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-section ul {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+    /* Minimal text-first body: no visual highlight boxes */
+        
+        .external-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .external-link:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav .container {
+                gap: 0.5rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .privacy-hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .privacy-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .privacy-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .privacy-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/icons/smartkraft-icon.png" alt="SmartKraft Logo" class="logo-img">
+                    <span>SmartKraft</span>
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li><a href="index.html#home" data-tr="Ana Sayfa" data-en="Home" data-de="Startseite">Startseite</a></li>
+                        <li><a href="index.html#about" data-tr="Hakkımızda" data-en="About" data-de="Über uns">Über uns</a></li>
+                        <li><a href="index.html#products" data-tr="Ürünler" data-en="Products" data-de="Produkte">Produkte</a></li>
+                        <li><a href="index.html#support" data-tr="Destek Ol" data-en="Support Us" data-de="Unterstütze uns">Unterstütze uns</a></li>
+                        <li><a href="index.html#contact" data-tr="İletişim" data-en="Contact" data-de="Kontakt">Kontakt</a></li>
+                    </ul>
+                    
+                    <div class="lang-selector">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="tr">TR</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Privacy Hero Section -->
+    <section class="privacy-hero">
+        <div class="hero-bg-icon" aria-hidden="true">
+            <i class="fas fa-eye-slash"></i>
+        </div>
+        <div class="container">
+            <h1 data-tr="Gizlilik Politikası" data-en="Privacy Policy" data-de="Datenschutzerklärung">Gizlilik Politikası</h1>
+            <p class="subtitle" data-tr="Gizlilik bizim için gösterişli bir pazarlama değil, işin yapılış biçimidir. Çerez yok, izleme yok; sadece içeriği sunuyoruz." data-en="Privacy is not marketing, it's our way of building. No cookies, no tracking—just serving content." data-de="Datenschutz ist kein Marketing, sondern unsere Arbeitsweise. Keine Cookies, kein Tracking – wir liefern nur Inhalte.">Gizlilik bizim için gösterişli bir pazarlama değil, işin yapılış biçimidir. Çerez yok, izleme yok; sadece içeriği sunuyoruz.</p>
+            <div class="badge" data-tr="ÇEREZSİZ BÖLGE" data-en="COOKIE-FREE ZONE" data-de="KEKSFREI-ZONE">ÇEREZSİZ BÖLGE</div>
+        </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <main class="privacy-content">
+        <div class="container">
+            <div class="privacy-section">
+                <h2 data-tr="Privacy by Design" data-en="Privacy by Design" data-de="Privacy by Design">Privacy by Design</h2>
+                <p data-tr="Gizlilik bizim mimarimizin parçasıdır. Sitemizi yalnızca içerik sunmak için kurduk; davranış analizi, reklam takibi veya profil çıkarımı yapmıyoruz. Sayfalarımız, dış servislere istek yapmadan, yerelde barındırılan yazı tipleri ve ikonlarla çalışır. Üçüncü taraf script eklemiyor, kullanıcı takibi için parmak izi çıkarımı (fingerprinting), A/B testi, ısı haritası gibi yöntemler kullanmıyoruz." data-en="Privacy is part of our architecture. We built the site to serve content only; we don't do behavior analytics, ad tracking, or profiling. Pages work without calling out to external services and use locally hosted fonts and icons. We don't add third‑party scripts or use fingerprinting, A/B testing, or heatmaps for user tracking." data-de="Datenschutz ist Teil unserer Architektur. Wir haben die Website so gebaut, dass sie ausschließlich Inhalte ausliefert; keine Verhaltensanalysen, kein Werbetracking, kein Profiling. Seiten funktionieren ohne Aufrufe an externe Dienste und nutzen lokal gehostete Schriften und Icons. Wir binden keine Drittanbieter‑Skripte ein und verwenden weder Fingerprinting, A/B‑Tests noch Heatmaps zur Nutzerverfolgung.">Datenschutz ist Teil unserer Architektur. Wir haben die Website so gebaut, dass sie ausschließlich Inhalte ausliefert; keine Verhaltensanalysen, kein Werbetracking, kein Profiling. Seiten funktionieren ohne Aufrufe an externe Dienste und nutzen lokal gehostete Schriften und Icons. Wir binden keine Drittanbieter‑Skripte ein und verwenden weder Fingerprinting, A/B‑Tests noch Heatmaps zur Nutzerverfolgung.</p>
+                <p data-tr="Performans ile gizlilik birbirini destekler: daha az bağımlılık, daha az veri aktarımı ve daha hızlı yükleme. Bu nedenle izleme bant genişliğinizi tüketmez, çerez banner’ları ya da izne dayalı karışıklıklar görmezsiniz. Amacımız, sayfayı açtığınız anda açık ve temiz bir içerik deneyimi sunmaktır." data-en="Performance and privacy reinforce each other: fewer dependencies, less data transfer, faster loads. That’s why you won’t see trackers burning bandwidth or consent popups getting in your way. Our goal is a clear, clean reading experience the moment you open a page." data-de="Leistung und Datenschutz verstärken sich: weniger Abhängigkeiten, weniger Datenübertragung, schnellere Ladezeiten. Deshalb gibt es keine Tracker, die Bandbreite verbrauchen, und keine Zustimmungs‑Popups, die stören. Unser Ziel ist ein klares, ruhiges Leseerlebnis ab dem ersten Seitenaufruf.">Leistung und Datenschutz verstärken sich: weniger Abhängigkeiten, weniger Datenübertragung, schnellere Ladezeiten. Deshalb gibt es keine Tracker, die Bandbreite verbrauchen, und keine Zustimmungs‑Popups, die stören. Unser Ziel ist ein klares, ruhiges Leseerlebnis ab dem ersten Seitenaufruf.</p>
+                <p data-tr="Açık kaynak yaklaşımımız sayesinde, nasıl çalıştığımız denetlenebilir. Gizlilik iddiasını pazarlama söylemi olarak değil, teknik kararlar ve basit mimari üzerinden uyguluyoruz." data-en="Our open source approach makes how we work auditable. We don’t treat privacy as marketing copy, but as technical choices and a simpler architecture." data-de="Durch unseren Open‑Source‑Ansatz ist unser Vorgehen überprüfbar. Wir verstehen Datenschutz nicht als Marketing, sondern als technische Entscheidungen und eine bewusst einfache Architektur.">Durch unseren Open‑Source‑Ansatz ist unser Vorgehen überprüfbar. Wir verstehen Datenschutz nicht als Marketing, sondern als technische Entscheidungen und eine bewusst einfache Architektur.</p>
+
+                <h3 data-tr="Ne Yapmıyoruz" data-en="What We Don't Do" data-de="Was wir nicht tun">Was wir nicht tun</h3>
+                <ul>
+                    <li>
+                        <strong data-tr="Çerez yok" data-en="No cookies" data-de="Keine Cookies">Keine Cookies</strong>
+                        <p data-tr="Sitemizde birinci ya da üçüncü taraf çerezler kullanılmaz. Ziyaretinizi tanımlamak, oturum açmadan sizi takip etmek ya da davranışınızı ilişkilendirmek için çerez yerleştirmeyiz." data-en="We don’t use first‑ or third‑party cookies. We don’t set cookies to identify your visit, track you without logging in, or associate your behavior across sessions." data-de="Wir verwenden weder First‑ noch Third‑Party‑Cookies. Wir setzen keine Cookies, um Ihren Besuch zu identifizieren, Sie ohne Login zu verfolgen oder Ihr Verhalten über Sitzungen hinweg zuzuordnen.">Wir verwenden weder First‑ noch Third‑Party‑Cookies. Wir setzen keine Cookies, um Ihren Besuch zu identifizieren, Sie ohne Login zu verfolgen oder Ihr Verhalten über Sitzungen hinweg zuzuordnen.</p>
+                    </li>
+                    <li>
+                        <strong data-tr="İzleme/Analitik yok" data-en="No tracking/analytics" data-de="Kein Tracking/Analytics">Kein Tracking/Analytics</strong>
+                        <p data-tr="Google Analytics, Meta Pixel gibi piksel tabanlı hiçbir izleme aracı yok. A/B testi, ısı haritası, oturum kaydı gibi davranışsal analiz yöntemlerini uygulamıyoruz." data-en="No pixel‑based trackers like Google Analytics or Meta Pixel. We don’t run behavioral analysis such as A/B testing, heatmaps, or session recording." data-de="Keine pixelbasierten Tracker wie Google Analytics oder Meta Pixel. Wir führen keine Verhaltensanalysen wie A/B‑Tests, Heatmaps oder Session‑Recordings durch.">Keine pixelbasierten Tracker wie Google Analytics oder Meta Pixel. Wir führen keine Verhaltensanalysen wie A/B‑Tests, Heatmaps oder Session‑Recordings durch.</p>
+                    </li>
+                    <li>
+                        <strong data-tr="CDN’e veri yok" data-en="No data to CDNs" data-de="Keine Daten an CDNs">Keine Daten an CDNs</strong>
+                        <p data-tr="Yazı tipleri, ikonlar ve scriptler yerel olarak sunulur; üçüncü taraf CDN’lere kimlik ya da tarayıcı bilgisi gönderilmez. Bu, gizliliği artırırken sayfa tutarlılığını ve hızını da iyileştirir." data-en="Fonts, icons, and scripts are served locally; we don’t leak identifiers or browser details to third‑party CDNs. This improves privacy while also keeping pages fast and consistent." data-de="Schriften, Icons und Skripte liefern wir lokal aus; es werden keine Kennungen oder Browser‑Details an Dritt‑CDNs übertragen. Das erhöht die Privatsphäre und hält Seiten zugleich schnell und konsistent.">Schriften, Icons und Skripte liefern wir lokal aus; es werden keine Kennungen oder Browser‑Details an Dritt‑CDNs übertragen. Das erhöht die Privatsphäre und hält Seiten zugleich schnell und konsistent.</p>
+                    </li>
+                </ul>
+
+                <h3 data-tr="Neler Yine de Olabilir" data-en="What May Still Occur" data-de="Was dennoch passieren kann">Was dennoch passieren kann</h3>
+                <p data-tr="İnternetin işleyişi gereği bazı teknik işlemler kaçınılmazdır. Örnekler:" data-en="Some technical processing is unavoidable due to how the internet works. Examples:" data-de="Aufgrund der Funktionsweise des Internets sind einige technische Verarbeitungen unvermeidlich. Beispiele:">Aufgrund der Funktionsweise des Internets sind einige technische Verarbeitungen unvermeidlich. Beispiele:</p>
+                <ul>
+                    <li data-tr="Barındırma sağlayıcısının erişim günlüklerinde IP adresi, tarih/saat, istenen URL ve kullanıcı aracısı kısa süreli yer alabilir." data-en="Hosting access logs may briefly include IP address, timestamp, requested URL, and user agent." data-de="Zugriffsprotokolle des Hosters können kurzzeitig IP-Adresse, Zeitstempel, angeforderte URL und User-Agent enthalten.">Zugriffsprotokolle des Hosters können kurzzeitig IP-Adresse, Zeitstempel, angeforderte URL und User-Agent enthalten.</li>
+                    <li data-tr="Güvenlik duvarı/DDoS korumaları kötüye kullanım tespiti için geçici imzalar üretebilir." data-en="Firewalls/DDoS protections may create temporary signatures to detect abuse." data-de="Firewalls/DDoS-Schutz kann temporäre Signaturen zur Missbrauchserkennung erzeugen.">Firewalls/DDoS-Schutz kann temporäre Signaturen zur Missbrauchserkennung erzeugen.</li>
+                </ul>
+                <p data-tr="Bu veriler yalnızca güvenlik ve hata ayıklama için, sınırlı süre tutulur; reklam, profil çıkarımı veya davranış analizi için kullanılmaz." data-en="These data are kept for security and debugging only, for a limited time; not used for ads, profiling, or behavior analytics." data-de="Diese Daten werden ausschließlich für Sicherheit und Debugging und nur begrenzt aufbewahrt; nicht für Werbung, Profiling oder Verhaltensanalysen verwendet.">Diese Daten werden ausschließlich für Sicherheit und Debugging und nur begrenzt aufbewahrt; nicht für Werbung, Profiling oder Verhaltensanalysen verwendet.</p>
+
+                <h2 data-tr="Harici Bağlantılar" data-en="External Links" data-de="Externe Links">Externe Links</h2>
+                <p data-tr="Projelerimizi geliştirmek, kaynak kodu paylaşmak ve topluluktan destek almak için bazı harici platformlara bağlantılar veriyoruz. Bu bağlantılara tıkladığınızda sitemizden ayrılırsınız; bu noktadan sonra ilgili platformun gizlilik politikası geçerlidir." data-en="We link to some external platforms to develop, share source code, and receive community support. When you click these links you leave our site; from that point the platform's own privacy policy applies." data-de="Wir verlinken auf einige externe Plattformen, um zu entwickeln, Quellcode zu teilen und Community-Unterstützung zu erhalten. Wenn Sie diese Links anklicken, verlassen Sie unsere Website; ab dann gilt die Datenschutzrichtlinie der Plattform.">Wir verlinken auf einige externe Plattformen, um zu entwickeln, Quellcode zu teilen und Community-Unterstützung zu erhalten. Wenn Sie diese Links anklicken, verlassen Sie unsere Website; ab dann gilt die Datenschutzrichtlinie der Plattform.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/smrtkrft" target="_blank" class="external-link">github.com/smrtkrft</a> — <span data-tr="Kod deposu" data-en="Code repository" data-de="Code-Repository">Code-Repository</span></p>
+                <p><strong>PayPal:</strong> <a href="https://paypal.me/smartkraft" target="_blank" class="external-link">paypal.me/smartkraft</a> — <span data-tr="Bağış" data-en="Donation" data-de="Spende">Spende</span></p>
+                <p><strong>Patreon:</strong> <a href="https://www.patreon.com/smartkraft" target="_blank" class="external-link">patreon.com/smartkraft</a> — <span data-tr="Destek" data-en="Support" data-de="Unterstützung">Unterstützung</span></p>
+                <p data-tr="GitHub’dan yalnızca kendi herkese açık verilerimizi çekip istatistik sayılarımızı güncelliyoruz; bunun dışında sitemiz hiçbir platformdan veri çekmez." data-en="We only fetch our own public data from GitHub to update statistics; beyond that, our site does not fetch data from any platform." data-de="Wir rufen ausschließlich unsere eigenen öffentlichen Daten von GitHub ab, um Statistiken zu aktualisieren; darüber hinaus ruft unsere Website keine Daten von anderen Plattformen ab.">GitHub’dan yalnızca kendi herkese açık verilerimizi çekip istatistik sayılarımızı güncelliyoruz; bunun dışında sitemiz hiçbir platformdan veri çekmez.</p>
+
+                <h2 data-tr="Veri Sorumlusu" data-en="Data Controller" data-de="Verantwortlicher">Veri Sorumlusu</h2>
+                <p data-tr="Veri Sorumlusu: SmartKraft, İsviçre. Gizlilik talepleri için: info@smartkraft.ch" data-en="Data Controller: SmartKraft, Switzerland. Privacy contact: info@smartkraft.ch" data-de="Verantwortlicher: SmartKraft, Schweiz. Datenschutzkontakt: info@smartkraft.ch">Veri Sorumlusu: SmartKraft, İsviçre. Gizlilik talepleri için: info@smartkraft.ch</p>
+
+                <h2 data-tr="Hukuki Dayanaklar" data-en="Legal Bases" data-de="Rechtsgrundlagen">Hukuki Dayanaklar</h2>
+                <p data-tr="Bülten verileri açık rıza ile işlenir. Erişim günlükleri güvenlik ve hata ayıklama amaçlı meşru menfaat kapsamında sınırlı süre saklanır. Harici bağlantılar, kullanıcının açık eylemi ile ziyaret edilir ve ilgili platformun politikası geçerli olur." data-en="Newsletter data are processed based on consent. Access logs are retained for a limited time under legitimate interests for security and troubleshooting. External links are visited by the user's action and the platform's policy applies." data-de="Newsletter‑Daten werden auf Grundlage der Einwilligung verarbeitet. Zugriffsprotokolle werden für einen begrenzten Zeitraum auf Basis berechtigter Interessen (Sicherheit/Fehlersuche) aufbewahrt. Externe Links werden durch Nutzerhandlung besucht und es gilt die Plattform‑Richtlinie.">Bülten verileri açık rıza ile işlenir. Erişim günlükleri güvenlik ve hata ayıklama amaçlı meşru menfaat kapsamında sınırlı süre saklanır. Harici bağlantılar, kullanıcının açık eylemi ile ziyaret edilir ve ilgili platformun politikası geçerli olur.</p>
+
+                <h2 data-tr="Saklama Süreleri" data-en="Retention" data-de="Aufbewahrung">Saklama Süreleri</h2>
+                <ul>
+                    <li data-tr="Erişim günlükleri: 7–30 gün." data-en="Access logs: 7–30 days." data-de="Zugriffsprotokolle: 7–30 Tage.">Erişim günlükleri: 7–30 gün.</li>
+                    <li data-tr="Bülten verisi: abonelik sona erene kadar; iptal için bize e‑posta atmanız yeterlidir. Vazgeçme sonrası, tekrar iletiyi önlemek için adresiniz kısa süre bastırma listesinde tutulabilir." data-en="Newsletter data: retained until you unsubscribe; you can unsubscribe by emailing us. After opt‑out, your address may be kept briefly on a suppression list to prevent re‑contact." data-de="Newsletter‑Daten: Aufbewahrung bis zur Abmeldung; Abmeldung per E‑Mail an uns. Nach dem Opt‑out kann Ihre Adresse kurzzeitig in einer Suppressionsliste verbleiben, um erneute Kontaktaufnahme zu vermeiden.">Bülten verisi: abonelik sona erene kadar; iptal için bize e‑posta atmanız yeterlidir. Vazgeçme sonrası, tekrar iletiyi önlemek için adresiniz kısa süre bastırma listesinde tutulabilir.</li>
+                    <li data-tr="Destek yazışmaları: 3 ay (yasal zorunluluk yoksa)." data-en="Support correspondence: 3 months (unless a legal obligation requires longer)." data-de="Support‑Korrespondenz: 3 Monate (sofern keine gesetzliche Pflicht eine längere Aufbewahrung verlangt).">Destek yazışmaları: 3 ay (yasal zorunluluk yoksa).</li>
+                </ul>
+
+                <h2 data-tr="Barındırma ve Aktarım" data-en="Hosting and Transfers" data-de="Hosting und Übermittlungen">Barındırma ve Aktarım</h2>
+                <p data-tr="Sunucularımız İsviçre/AB bölgesinde barındırılmaktadır. Sınır ötesi aktarım gerektiğinde yalnızca uygun güvenceler ile (ör. standart sözleşme maddeleri) gerçekleştirilir." data-en="Our servers are hosted in Switzerland/EU. If cross‑border transfers are needed, they are done only with appropriate safeguards (e.g., Standard Contractual Clauses)." data-de="Unsere Server werden in der Schweiz/EU gehostet. Falls grenzüberschreitende Übermittlungen erforderlich sind, erfolgen diese nur mit geeigneten Garantien (z. B. Standardvertragsklauseln).">Sunucularımız İsviçre/AB bölgesinde barındırılmaktadır. Sınır ötesi aktarım gerektiğinde yalnızca uygun güvenceler ile (ör. standart sözleşme maddeleri) gerçekleştirilir.</p>
+
+                <h2 data-tr="Haklarınız ve Kapsam" data-en="Your Rights and Scope" data-de="Ihre Rechte und Geltungsbereich">Haklarınız ve Kapsam</h2>
+                <p data-tr="İsviçre FADP/DSG ve uygulanabildiği ölçüde GDPR kapsamında; erişim, düzeltme, silme, işlemeyi kısıtlama ve itiraz haklarına sahipsiniz. Taleplere en geç 30 gün içinde yanıt veririz; gerekli durumlarda kimlik doğrulaması isteyebiliriz." data-en="Under Swiss FADP/DSG and, where applicable, the GDPR, you have rights to access, rectification, deletion, restriction, and objection. We respond within 30 days and may request identity verification when necessary." data-de="Nach schweizerischem DSG und ggf. der DSGVO haben Sie Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch. Wir antworten innerhalb von 30 Tagen und können bei Bedarf eine Identitätsprüfung verlangen.">İsviçre FADP/DSG ve uygulanabildiği ölçüde GDPR kapsamında; erişim, düzeltme, silme, işlemeyi kısıtlama ve itiraz haklarına sahipsiniz. Taleplere en geç 30 gün içinde yanıt veririz; gerekli durumlarda kimlik doğrulaması isteyebiliriz.</p>
+
+                <h2 data-tr="Denetleyici Kurumlar" data-en="Supervisory Authorities" data-de="Aufsichtsbehörden">Denetleyici Kurumlar</h2>
+                <p data-tr="İsviçre Veri Koruma ve Bilgi Edinme Federal Komiseri (FDPIC/EDÖB/IFPDT) nezdinde şikâyet hakkınız saklıdır. AB’de hedeflenen kullanıcılar için ilgili üye devlet otoritesine başvurabilirsiniz." data-en="You may lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC/EDÖB/IFPDT). For EU‑targeted users, you can contact the competent EU supervisory authority." data-de="Sie können bei dem Eidgenössischen Datenschutz‑ und Öffentlichkeitsbeauftragten (EDÖB/FDPIC) Beschwerde einreichen. Für EU‑Zielgruppen kann die zuständige EU‑Aufsichtsbehörde kontaktiert werden.">İsviçre Veri Koruma ve Bilgi Edinme Federal Komiseri (FDPIC/EDÖB/IFPDT) nezdinde şikâyet hakkınız saklıdır. AB’de hedeflenen kullanıcılar için ilgili üye devlet otoritesine başvurabilirsiniz.</p>
+
+                <h2 data-tr="Bülten Süreci" data-en="Newsletter Process" data-de="Newsletter‑Prozess">Bülten Süreci</h2>
+                <p data-tr="Mümkünse double opt‑in (e‑posta ile doğrulama) uygularız. Abonelikten dilediğiniz an bize e‑posta göndererek vazgeçebilirsiniz; sonrasında tekrar e‑posta gönderilmemesi için adresiniz kısa süre bastırma listesinde tutulabilir." data-en="Where possible, we use double opt‑in (email confirmation). You can unsubscribe anytime by emailing us; after that your address may be kept briefly on a suppression list to avoid re‑contact." data-de="Wo möglich, nutzen wir Double‑Opt‑In (Bestätigung per E‑Mail). Sie können jederzeit per E‑Mail abbestellen; danach kann Ihre Adresse kurzzeitig in einer Suppressionsliste verbleiben, um erneute Kontaktaufnahme zu vermeiden.">Mümkünse double opt‑in (e‑posta ile doğrulama) uygularız. Abonelikten dilediğiniz an bize e‑posta göndererek vazgeçebilirsiniz; sonrasında tekrar e‑posta gönderilmemesi için adresiniz kısa süre bastırma listesinde tutulabilir.</p>
+
+                <h2 data-tr="Güvenlik Uygulamaları" data-en="Security Practices" data-de="Sicherheitsmaßnahmen">Güvenlik Uygulamaları</h2>
+                <p data-tr="HTTPS zorunludur. En az ayrıcalık ilkesi uygulanır, saldırı yüzeyi küçük tutulur ve gereksiz veri toplanmaz. (Varsa) yedekler ve at‑rest şifreleme uygulanır." data-en="HTTPS is enforced. We apply least privilege, keep the attack surface small, and avoid unnecessary data collection. Where applicable, backups and encryption at rest are used." data-de="HTTPS ist verpflichtend. Wir wenden Least‑Privilege an, halten die Angriffsfläche klein und erheben keine unnötigen Daten. Soweit anwendbar, werden Backups und Verschlüsselung im Ruhezustand eingesetzt.">HTTPS zorunludur. En az ayrıcalık ilkesi uygulanır, saldırı yüzeyi küçük tutulur ve gereksiz veri toplanmaz. (Varsa) yedekler ve at‑rest şifreleme uygulanır.</p>
+
+                <h2 data-tr="Çocukların Gizliliği" data-en="Children’s Privacy" data-de="Datenschutz von Kindern">Çocukların Gizliliği</h2>
+                <p data-tr="Site çocukları hedeflemez; bilerek çocuklardan veri toplamıyoruz. Böyle bir durumdan haberdar olursak silme işlemi uygularız." data-en="This site is not directed to children; we do not knowingly collect children’s data. If we become aware, we will delete such data." data-de="Diese Website richtet sich nicht an Kinder; wir erfassen nicht wissentlich Daten von Kindern. Falls bekannt, werden solche Daten gelöscht.">Site çocukları hedeflemez; bilerek çocuklardan veri toplamıyoruz. Böyle bir durumdan haberdar olursak silme işlemi uygularız.</p>
+
+                
+
+                <h2 data-tr="Çerez Banner’ı Neden Yok" data-en="Why There Is No Cookie Banner" data-de="Warum kein Cookie‑Banner">Çerez Banner’ı Neden Yok</h2>
+                <p data-tr="Çerez veya izleme teknolojileri kullanmadığımız için çerez onayı gerekmemektedir. Sayfalar, yerel kaynaklarla ve minimum bağımlılıkla çalışır." data-en="We don’t use cookies or tracking tech, so cookie consent is not required. Pages work with local assets and minimal dependencies." data-de="Wir verwenden keine Cookies oder Tracking‑Technologien; daher ist keine Cookie‑Einwilligung erforderlich. Seiten funktionieren mit lokalen Assets und minimalen Abhängigkeiten.">Çerez veya izleme teknolojileri kullanmadığımız için çerez onayı gerekmemektedir. Sayfalar, yerel kaynaklarla ve minimum bağımlılıkla çalışır.</p>
+
+                <h2 data-tr="İletişim" data-en="Contact" data-de="Kontakt">Kontakt</h2>
+                <p data-tr="Gizlilikle ilgili tüm talepleriniz için bize şu adreslerden ulaşabilirsiniz:" data-en="For any privacy-related requests, contact us at:" data-de="Für datenschutzbezogene Anfragen erreichen Sie uns unter:">Für datenschutzbezogene Anfragen erreichen Sie uns unter:</p>
+                <div class="contact-info">
+                    <p><strong data-tr="Genel:" data-en="General:" data-de="Allgemein:">Allgemein:</strong> info@smartkraft.ch</p>
+                    <p><strong data-tr="Kod/GitHub:" data-en="Code/GitHub:" data-de="Code/GitHub:">Code/GitHub:</strong> code@smartkraft.ch</p>
+                </div>
+
+                <h2 data-tr="Değişiklikler" data-en="Changes" data-de="Änderungen">Änderungen</h2>
+                <p data-tr="Bu politikayı geliştikçe güncelleyebiliriz; önemli değişiklikleri sitede duyururuz." data-en="We may update this policy as we evolve; material changes will be announced on the site." data-de="Wir können diese Richtlinie bei Weiterentwicklung aktualisieren; wesentliche Änderungen werden auf der Website bekanntgegeben.">Wir können diese Richtlinie bei Weiterentwicklung aktualisieren; wesentliche Änderungen werden auf der Website bekanntgegeben.</p>
+
+                <p style="text-align: center; margin-top: 3rem; color: var(--text-secondary);" data-tr="Son güncelleme: Ağustos 2025" data-en="Last updated: August 2025" data-de="Zuletzt aktualisiert: August 2025">Zuletzt aktualisiert: August 2025</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="SmartKraft Logo" class="footer-logo-img">
+                    <span>SmartKraft</span>
+                </div>
+                <div class="footer-text">
+                    <p data-tr="Açık kaynak IoT çözümleri ile geleceğe katkı sağlıyoruz." data-en="Contributing to the future with open source IoT solutions." data-de="Mit Open-Source-IoT-Lösungen zur Zukunft beitragen.">
+                        Mit Open-Source-IoT-Lösungen zur Zukunft beitragen.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="license.html" data-tr="Lisans ve Kullanım" data-en="License and Terms" data-de="Lizenz und Nutzung">Lizenz und Nutzung</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="SmartKraft - Open Source IoT Solutions für innovative Projekte">
+    <meta name="theme-color" content="#00ff88">
+    
+    <!-- Favicon - Sadece temel boyutlar -->
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <title>SmartKraft - Open Source IoT Solutions</title>
+    
+    <!-- Local Assets - Privacy-First Implementation -->
+    <link rel="preload" href="assets/fonts/local-fonts.css" as="style">
+    <link rel="preload" href="assets/icons/all.min.css" as="style">
+    <link rel="stylesheet" href="assets/fonts/local-fonts.css">
+    <link rel="stylesheet" href="assets/icons/all.min.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/css/styles.css?v=1.5" as="style">
+    <link rel="preload" href="assets/js/script.js" as="script">
+    
+    <!-- Multiple CSS loading attempts for cPanel compatibility -->
+    <link href="assets/css/styles.css?v=1.5" rel="stylesheet" type="text/css">
+    <link href="/assets/css/styles.css?v=1.5" rel="stylesheet" type="text/css">
+    <link href="./assets/css/styles.css?v=1.5" rel="stylesheet" type="text/css">
+    
+    <!-- Inline CSS Backup -->
+    <style>
+        /* Critical CSS - Embedded for cPanel compatibility */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #00ff88;
+            --accent-hover: #00cc6a;
+            --accent-dim: #004d2a;
+            --border: #333333;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav {
+            padding: 1rem 0;
+        }
+        
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .lang-selector {
+            display: flex;
+            gap: 0.25rem;
+        }
+        
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-mono);
+        }
+        
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+        
+        /* Products Section - Critical Styles */
+        .products {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .products-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 3rem 0;
+        }
+        
+        .product-item {
+            display: flex;
+            width: 800px;
+            height: 250px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .product-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+        
+        .product-left {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-family: var(--font-mono);
+        }
+        
+        .product-description {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .product-center {
+            flex: 1;
+            padding: 20px 15px;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .product-features h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .product-features ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .product-right {
+            width: 160px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: 1px solid var(--accent);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        
+        .btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        /* Mobile */
+        @media (max-width: 850px) {
+            .product-item {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+            .product-center, .product-right {
+                width: 100%;
+                border: none;
+                border-top: 1px solid var(--border);
+            }
+        }
+        
+        /* Contact Section Override for Index Page */
+        .contact .contact-content {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .contact .contact-links {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .contact .contact-link i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .contact .contact-link a,
+        .contact .contact-link span {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+        }
+        
+        .contact .contact-link a:hover {
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .contact .contact-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        /* GitHub Stats Numbers in Code Block */
+        #stats-repos, #stats-issues, #stats-contributions {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* CSS Test */
+        .css-test { display: block !important; }
+    </style>
+    
+    <script>
+        // Test if CSS loaded properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const testElement = document.createElement('div');
+            testElement.className = 'css-test';
+            document.body.appendChild(testElement);
+            
+            const styles = window.getComputedStyle(testElement);
+            if (styles.display !== 'none') {
+                console.log('CSS loaded successfully');
+            } else {
+                console.error('CSS failed to load - check file path and server configuration');
+            }
+            
+            document.body.removeChild(testElement);
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <!-- Mobile: Top row with logo and language selector -->
+                <div class="nav-top">
+                    <div class="logo">
+                        <img src="logo.png" alt="SmartKraft Logo" class="logo-img">
+                        <span>SmartKraft</span>
+                    </div>
+                    
+                    <div class="lang-selector">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="tr">TR</button>
+                    </div>
+                </div>
+                
+                <!-- Mobile: Bottom row with centered navigation -->
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li><a href="#home" data-tr="Ana Sayfa" data-en="Home" data-de="Startseite">Startseite</a></li>
+                        <li><a href="#about" data-tr="Hakkımızda" data-en="About" data-de="Über uns">Über uns</a></li>
+                        <li><a href="#products" data-tr="Ürünler" data-en="Products" data-de="Produkte">Produkte</a></li>
+                        <li><a href="#support" data-tr="Destek Ol" data-en="Support Us" data-de="Unterstütze uns">Unterstütze uns</a></li>
+                        <li><a href="#contact" data-tr="İletişim" data-en="Contact" data-de="Kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Dynamic Network Background -->
+    <section id="home" class="hero">
+        <canvas id="networkCanvas"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <div class="simple-welcome">
+                    <h2>SmartKraft</h2>
+                    <p data-tr="4 Aktif proje ile birden başlayacağız, Prototipler tamam ve işlevsel, Gerekli bileşen ve modüllerin listesi, PCB tasarımı , 3D baskı dosyası ve Kodları tamamen açık kaynak olarak buradan paylaşacağız." data-en="We will start with 4 active projects at once. Prototypes are ready and functional. We will share the list of required components and modules, PCB design, 3D printing files and codes completely open source here." data-de="Wir werden mit 4 aktiven Projekten gleichzeitig beginnen. Prototypen sind fertig und funktionsfähig. Wir werden die Liste der erforderlichen Komponenten und Module, PCB-Design, 3D-Druckdateien und Codes hier vollständig als Open Source teilen.">4 Aktif proje ile birden başlayacağız, Prototipler tamam ve işlevsel, Gerekli bileşen ve modüllerin listesi, PCB tasarımı , 3D baskı dosyası ve Kodları tamamen açık kaynak olarak buradan paylaşacağız.</p>
+                    <p data-tr="Bu çok iyi çünkü; İstersen her şeye erişip, inceleyip kendinde yapabileceksin." data-en="This is great because you can access everything, examine it and build it yourself if you want." data-de="Das ist großartig, denn Sie können auf alles zugreifen, es untersuchen und selbst bauen, wenn Sie möchten.">Bu çok iyi çünkü; İstersen her şeye erişip, inceleyip kendinde yapabileceksin.</p>
+                    <p data-tr="Yakında başlıyoruz..." data-en="Coming soon..." data-de="Bald geht es los...">Yakında başlıyoruz...</p>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#products" class="btn primary" data-tr="Ürünleri Keşfet" data-en="Explore Products" data-de="Produkte entdecken">Produkte entdecken</a>
+                    <a href="https://github.com/smrtkrft" class="btn secondary" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span data-tr="GitHub" data-en="GitHub" data-de="GitHub">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-tr="Hakkımızda" data-en="About Us" data-de="Über uns">Über uns</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-tr="SmartKraft, IoT cihazları için açık kaynak çözümler geliştiren bir topluluktur. Var olan cihazların eksiklerini tamamlıyoruz ya da daha gelişmiş şekilde yeniden yapıyoruz." data-en="SmartKraft is a community developing open source solutions for IoT devices. We complete the deficiencies of existing devices or rebuild them in a more advanced way." data-de="SmartKraft ist eine Community, die Open-Source-Lösungen für IoT-Geräte entwickelt. Wir vervollständigen die Mängel bestehender Geräte oder bauen sie auf fortgeschrittenere Weise neu auf.">
+                        SmartKraft ist eine Community, die Open-Source-Lösungen für IoT-Geräte entwickelt. Wir vervollständigen die Mängel bestehender Geräte oder bauen sie auf fortgeschrittenere Weise neu auf.
+                    </p>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label" data-tr="Açık Kaynak Proje" data-en="Open Source Projects" data-de="Open Source Projekte">Open Source Projekte</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label" data-tr="Geliştirici" data-en="Developers" data-de="Entwickler">Entwickler</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label" data-tr="Sana İhtiyacımız Var" data-en="We Need You" data-de="Wir brauchen dich">Wir brauchen dich</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title" data-tr="Ürünlerimiz" data-en="Our Products" data-de="Unsere Produkte">Our Products</h2>
+            
+            <div class="products-container">
+                <!-- SynDimm -->
+                <div class="product-item">
+                    <div class="product-left">
+                        <div>
+                            <h2 class="product-title">SynDimm</h2>
+                            <p class="product-description" data-tr="ESP32-S3 tabanlı senkronize dimmer kontrol sistemi. WiFi üzerinden klasik duvar dimmerları ve LED strip kontrolcüleri gibi farklı sistemleri senkronize eder. Çoklu mod desteği ile hem fiziki hem de dijital dimmerlerin mükemmel uyumu sağlanır." data-en="ESP32-S3 based synchronized dimmer control system. Synchronizes different systems like classic wall dimmers and LED strip controllers via WiFi. Perfect harmony of physical and digital dimmers with multi-mode support." data-de="ESP32-S3-basiertes synchronisiertes Dimmer-Kontrollsystem. Synchronisiert verschiedene Systeme wie klassische Wanddimmer und LED-Strip-Controller über WiFi. Perfekte Harmonie von physischen und digitalen Dimmern mit Multi-Modus-Unterstützung.">
+                                ESP32-S3 tabanlı senkronize dimmer kontrol sistemi. WiFi üzerinden klasik duvar dimmerları ve LED strip kontrolcüleri gibi farklı sistemleri senkronize eder. Çoklu mod desteği ile hem fiziki hem de dijital dimmerlerin mükemmel uyumu sağlanır.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-center">
+                        <div class="product-features">
+                            <h4 data-tr="Özellikler:" data-en="Features:" data-de="Eigenschaften:">Özellikler:</h4>
+                            <ul class="features-list">
+                                <li data-tr="Duvar dimmer & LED strip senkronizasyonu" data-en="Wall dimmer & LED strip synchronization" data-de="Wanddimmer & LED-Strip-Synchronisation">Duvar dimmer & LED strip senkronizasyonu</li>
+                                <li data-tr="ESP32-S3 WiFi kontrol" data-en="ESP32-S3 WiFi control" data-de="ESP32-S3 WiFi-Steuerung">ESP32-S3 WiFi kontrol</li>
+                                <li data-tr="Fiziki-dijital mükemmel uyum" data-en="Perfect physical-digital harmony" data-de="Perfekte physisch-digitale Harmonie">Fiziki-dijital mükemmel uyum</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-right">
+                        <div class="github-note" data-tr="Açık kaynak kodları, PCB tasarımları ve dökümanları" data-en="Open source codes, PCB designs and documentation" data-de="Open-Source-Codes, PCB-Designs und Dokumentation">Açık kaynak kodları, PCB tasarımları ve dökümanları</div>
+                        <a href="https://github.com/smrtkrft/SynDimm" target="_blank" class="btn btn-primary" data-tr="GitHub" data-en="GitHub" data-de="GitHub">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- FlexKey -->
+                <div class="product-item">
+                    <div class="product-left">
+                        <div>
+                            <h2 class="product-title">FlexKey</h2>
+                            <p class="product-description" data-tr="RFID ve röle tetikleme özellikli gelişmiş erişim kontrol sistemi. Her kullanıcı grubu kendi özel işlem listesine sahiptir ve grup bazlı farklı işlemler gerçekleştirebilir. Sahne kontrolü ile kompleks senaryoları tek dokunuşla yönetir." data-en="Advanced access control system with RFID and relay triggering. Each user group has its own special task list and can perform different group-based operations. Manages complex scenarios with a single touch through scene control." data-de="Erweiterte Zugriffskontrollsystem mit RFID und Relais-Auslösung. Jede Benutzergruppe hat ihre eigene spezielle Aufgabenliste und kann verschiedene gruppenbasierte Operationen durchführen. Verwaltet komplexe Szenarien mit einer Berührung durch Szenensteuerung.">
+                                RFID ve röle tetikleme özellikli gelişmiş erişim kontrol sistemi. Her kullanıcı grubu kendi özel işlem listesine sahiptir ve grup bazlı farklı işlemler gerçekleştirebilir. Sahne kontrolü ile kompleks senaryoları tek dokunuşla yönetir.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-center">
+                        <div class="product-features">
+                            <h4 data-tr="Özellikler:" data-en="Features:" data-de="Eigenschaften:">Özellikler:</h4>
+                            <ul class="features-list">
+                                <li data-tr="Grup bazlı işlem listesi" data-en="Group-based task list" data-de="Gruppenbasierte Aufgabenliste">Grup bazlı işlem listesi</li>
+                                <li data-tr="RFID erişim kontrol" data-en="RFID access control" data-de="RFID-Zugriffskontrolle">RFID erişim kontrol</li>
+                                <li data-tr="Kompleks sahne yönetimi" data-en="Complex scene management" data-de="Komplexes Szenenmanagement">Kompleks sahne yönetimi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-right">
+                        <div class="github-note" data-tr="Açık kaynak kodları, PCB tasarımları ve dökümanları" data-en="Open source codes, PCB designs and documentation" data-de="Open-Source-Codes, PCB-Designs und Dokumentation">Açık kaynak kodları, PCB tasarımları ve dökümanları</div>
+                        <a href="https://github.com/smrtkrft/FlexKey" target="_blank" class="btn btn-primary" data-tr="GitHub" data-en="GitHub" data-de="GitHub">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- ShifterKey -->
+                <div class="product-item">
+                    <div class="product-left">
+                        <div>
+                            <h2 class="product-title">ShifterKey</h2>
+                            <p class="product-description" data-tr="Taşınabilir RFID ve NFC okuyucu/yazıcı/oluşturucu cihazı. OLED ekran ve dahili pil ile herhangi bir ek sistem gerektirmeden tek başına çalışır. Kompakt tasarımı ile her yerde kullanılabilir ve profesyonel kart yönetimi sunar." data-en="Portable RFID and NFC reader/writer/creator device. Works standalone without any additional system with OLED display and internal battery. Can be used anywhere with its compact design and offers professional card management." data-de="Tragbares RFID- und NFC-Lesegerät/Schreibgerät/Ersteller. Funktioniert eigenständig ohne zusätzliches System mit OLED-Display und interner Batterie. Kann überall mit seinem kompakten Design verwendet werden und bietet professionelles Kartenmanagement.">
+                                Taşınabilir RFID ve NFC okuyucu/yazıcı/oluşturucu cihazı. OLED ekran ve dahili pil ile herhangi bir ek sistem gerektirmeden tek başına çalışır. Kompakt tasarımı ile her yerde kullanılabilir ve profesyonel kart yönetimi sunar.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-center">
+                        <div class="product-features">
+                            <h4 data-tr="Özellikler:" data-en="Features:" data-de="Eigenschaften:">Özellikler:</h4>
+                            <ul class="features-list">
+                                <li data-tr="RFID & NFC okuyucu/yazıcı" data-en="RFID & NFC reader/writer" data-de="RFID & NFC-Lesegerät/Schreibgerät">RFID & NFC okuyucu/yazıcı</li>
+                                <li data-tr="OLED ekran & dahili pil" data-en="OLED display & internal battery" data-de="OLED-Display & interne Batterie">OLED ekran & dahili pil</li>
+                                <li data-tr="Bağımsız çalışma" data-en="Standalone operation" data-de="Eigenständiger Betrieb">Bağımsız çalışma</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-right">
+                        <div class="github-note" data-tr="Açık kaynak kodları, PCB tasarımları ve dökümanları" data-en="Open source codes, PCB designs and documentation" data-de="Open-Source-Codes, PCB-Designs und Dokumentation">Açık kaynak kodları, PCB tasarımları ve dökümanları</div>
+                        <a href="https://github.com/smrtkrft/ShifterKey" target="_blank" class="btn btn-primary" data-tr="GitHub" data-en="GitHub" data-de="GitHub">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- DMF Protokol -->
+                <div class="product-item">
+                    <div class="product-left">
+                        <div>
+                            <h2 class="product-title">DMF Protokol</h2>
+                            <p class="product-description" data-tr="Kritik durumlarda hayati verilerin korunması için 'Dead Man's Finger' protokolü. Belirli aralıklarla erteleme işlemi yapılmazsa otomatik olarak devreye girer. Hash şifreleme, zaman ayarlı uyarı ve fiziki röle tetikleme ile maksimum güvenlik sunar." data-en="'Dead Man's Finger' protocol for protecting vital data in critical situations. Automatically activates if postponement operations are not performed at specific intervals. Offers maximum security with hash encryption, time-based alerts and physical relay triggering." data-de="'Dead Man's Finger'-Protokoll zum Schutz lebenswichtiger Daten in kritischen Situationen. Aktiviert automatisch, wenn Verschiebungsoperationen nicht in bestimmten Intervallen durchgeführt werden. Bietet maximale Sicherheit mit Hash-Verschlüsselung, zeitbasierten Alarmen und physischer Relais-Auslösung.">
+                                Kritik durumlarda hayati verilerin korunması için "Dead Man's Finger" protokolü. Belirli aralıklarla erteleme işlemi yapılmazsa otomatik olarak devreye girer. Hash şifreleme, zaman ayarlı uyarı ve fiziki röle tetikleme ile maksimum güvenlik sunar.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-center">
+                        <div class="product-features">
+                            <h4 data-tr="Özellikler:" data-en="Features:" data-de="Eigenschaften:">Özellikler:</h4>
+                            <ul class="features-list">
+                                <li data-tr="Erken uyarı hatırlatması" data-en="Early warning reminder" data-de="Frühwarnerinnerung">Erken uyarı hatırlatması</li>
+                                <li data-tr="Hash şifreleme koruması" data-en="Hash encryption protection" data-de="Hash-Verschlüsselungsschutz">Hash şifreleme koruması</li>
+                                <li data-tr="WiFi veya buton ile erteleme" data-en="WiFi or button postponement" data-de="WiFi- oder Knopf-Verschiebung">WiFi veya buton ile erteleme</li>
+                                <li data-tr="Digital URL ve fiziki röle tetikleme" data-en="Digital URL and physical relay triggering" data-de="Digitale URL und physische Relais-Auslösung">Digital URL ve fiziki röle tetikleme</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-right">
+                        <div class="github-note" data-tr="Açık kaynak kodları, PCB tasarımları ve dökümanları" data-en="Open source codes, PCB designs and documentation" data-de="Open-Source-Codes, PCB-Designs und Dokumentation">Açık kaynak kodları, PCB tasarımları ve dökümanları</div>
+                        <a href="https://github.com/smrtkrft/DMF_protocol" target="_blank" class="btn btn-primary" data-tr="GitHub" data-en="GitHub" data-de="GitHub">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title" data-tr="Destek Ol" data-en="Support Us" data-de="Unterstütze uns">Support Us</h2>
+            
+            <div class="support-content">
+                <div class="support-intro">
+                    <p data-tr="SmartKraft açık kaynak bir projedir ve topluluk desteği ile gelişir. Bize destek olmak için bağış yapabilir, geliştirdiğim IoT cihazlarındaki bugları bulup kod geliştirmeye katkıda bulunabilir veya yeni proje önerileri sunabilirsiniz." data-en="SmartKraft is an open source project that grows with community support. You can support us by making donations, helping find bugs in our IoT devices and contributing to code development, or suggesting new projects." data-de="SmartKraft ist ein Open-Source-Projekt, das mit Community-Unterstützung wächst. Sie können uns durch Spenden unterstützen, Bugs in unseren IoT-Geräten finden und zur Codeentwicklung beitragen oder neue Projekte vorschlagen.">
+                        SmartKraft is an open source project that grows with community support. You can support us by making donations, helping find bugs in our IoT devices and contributing to code development, or suggesting new projects.
+                    </p>
+                </div>
+                
+                <div class="support-options">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-tr="Bağış Yap" data-en="Make a Donation" data-de="Spenden">Make a Donation</h3>
+                        <p data-tr="PayPal, Patreon veya Polkadot ile direkt destek" data-en="Direct support via PayPal, Patreon or Polkadot" data-de="Direkte Unterstützung über PayPal, Patreon oder Polkadot">Direct support via PayPal, Patreon or Polkadot</p>
+                        <div class="support-code">
+                            <code>
+                                <span data-tr="// Hızlı bağış seçenekleri" data-en="// Quick donation options" data-de="// Schnelle Spendenoptionen">// Quick donation options</span><br>
+                                const donate = {<br>
+                                &nbsp;&nbsp;paypal: "paypal.me/smartkraft",<br>
+                                &nbsp;&nbsp;patreon: "patreon.com/smartkraft",<br>
+                                &nbsp;&nbsp;crypto: "polkadot"<br>
+                                };
+                            </code>
+                        </div>
+                        <a href="donate.html" class="btn primary" data-tr="Bağış Yap" data-en="Donate" data-de="Spenden">Donate</a>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 data-tr="Kod Geliştir" data-en="Contribute Code" data-de="Code beitragen">Kod Geliştir</h3>
+                        <p data-tr="IoT cihazlarımdaki bugları bul ve kod geliştirmeye katkıda bulun" data-en="Find bugs in our IoT devices and contribute to code development" data-de="Finden Sie Bugs in unseren IoT-Geräten und tragen Sie zur Codeentwicklung bei">IoT cihazlarımdaki bugları bul ve kod geliştirmeye katkıda bulun</p>
+                        <div class="support-code">
+                            <code>
+                                <span data-tr="// GitHub istatistikleri (canlı)" data-en="// GitHub stats (live)" data-de="// GitHub-Statistiken (live)">// GitHub stats (live)</span><br>
+                                git clone github.com/smrtkrft<br>
+                                // <span id="stats-repos">5</span> repos, <span id="stats-issues">3</span> issues, <span id="stats-contributions">19</span> contributions<br>
+                                npm install && npm start
+                            </code>
+                        </div>
+                        <a href="https://github.com/smrtkrft" target="_blank" class="btn primary" data-tr="GitHub'a Git" data-en="Go to GitHub" data-de="Zu GitHub">Go to GitHub</a>
+                    </div>
+                    
+                    <div class="support-card project-suggest">
+                        <div class="support-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 data-tr="Beta Test" data-en="Beta Testing" data-de="Beta Testing">Beta Testing</h3>
+                        <p data-tr="Yeni projeleri test edin · Erken erişim · Bug raporu" data-en="Test new projects · Early access · Bug reporting" data-de="Neue Projekte testen · Früher Zugang · Bug-Berichte">Test new projects · Early access · Bug reporting</p>
+                        <div class="support-code">
+                            <code>
+                                <span data-tr="// Beta tester olmak için" data-en="// To become beta tester" data-de="// Um Beta-Tester zu werden">// To become beta tester</span><br>
+                                const betaTester = {<br>
+                                &nbsp;&nbsp;earlyAccess: true,<br>
+                                &nbsp;&nbsp;feedback: "critical",<br>
+                                &nbsp;&nbsp;testing: "hardware+software"<br>
+                                };
+                            </code>
+                        </div>
+                        <a href="mailto:info@smartkraft.ch?subject=Beta%20Tester%20Application&body=Hello%20SmartKraft,%0D%0A%0D%0AI%27d%20like%20to%20apply%20as%20a%20beta%20tester.%0D%0A%0D%0AName:%20%0D%0ACountry/Timezone:%20%0D%0ADevices/OS:%20%0D%0AExperience%20(optional):%20%0D%0AWhy%20I%27m%20interested:%20%0D%0A%0D%0AI%20agree%20to%20share%20feedback%20and%20bug%20reports.%0D%0A%0D%0AThanks,%0D%0A%5BYour%20Name%5D" class="btn primary" data-tr="Beta Tester Ol" data-en="Become Beta Tester" data-de="Beta-Tester werden">Become Beta Tester</a>
+                    </div>
+                </div>
+                
+                <div class="support-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="stat-repos">5</div>
+                        <div class="stat-label" data-tr="Repository" data-en="Repositories" data-de="Repositories">Repositories</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="stat-contributions">19</div>
+                        <div class="stat-label" data-tr="Katkı" data-en="Contributions" data-de="Beiträge">Contributions</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="stat-issues">3</div>
+                        <div class="stat-label" data-tr="Açık Issue" data-en="Open Issues" data-de="Offene Issues">Open Issues</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h2 class="newsletter-title" data-tr="Gelişmelerden Haberdar Ol" data-en="Stay Updated" data-de="Bleiben Sie auf dem Laufenden">Gelişmelerden Haberdar Ol</h2>
+                    <p class="newsletter-description" data-tr="Tamamlanan projeler, yeni çıkan cihazlar, özellik güncellemeleri ve SmartKraft ekosistemindeki tüm gelişmeler hakkında ilk siz öğrenin. E-posta listemize katılın ve hiçbir yeniliği kaçırmayın." data-en="Be the first to know about completed projects, new devices, feature updates, and all developments in the SmartKraft ecosystem. Join our email list and never miss an innovation." data-de="Erfahren Sie als Erste über abgeschlossene Projekte, neue Geräte, Feature-Updates und alle Entwicklungen im SmartKraft-Ökosystem. Treten Sie unserer E-Mail-Liste bei und verpassen Sie keine Innovation.">Tamamlanan projeler, yeni çıkan cihazlar, özellik güncellemeleri ve SmartKraft ekosistemindeki tüm gelişmeler hakkında ilk siz öğrenin. E-posta listemize katılın ve hiçbir yeniliği kaçırmayın.</p>
+                </div>
+                
+                <div class="newsletter-form-container">
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <i class="fas fa-envelope form-icon"></i>
+                            <input type="email" id="emailInput" placeholder="E-posta adresiniz" required
+                                   data-tr-placeholder="E-posta adresiniz" 
+                                   data-en-placeholder="Your email address"
+                                   data-de-placeholder="Ihre E-Mail-Adresse">
+                            <button type="submit" class="newsletter-btn">
+                                <span class="btn-text" data-tr="Kayıt Ol" data-en="Subscribe" data-de="Abonnieren">Kayıt Ol</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="form-feedback" id="formFeedback"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-tr="İletişim" data-en="Contact" data-de="Kontakt">Contact</h2>
+            
+            <div class="contact-content">
+                <div class="contact-links">
+                    <div class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@smartkraft.ch">info@smartkraft.ch</a>
+                    </div>
+                    <div class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/smrtkrft" target="_blank">github.com/smrtkrft</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="SmartKraft Logo" class="footer-logo-img">
+                    <span>SmartKraft</span>
+                </div>
+                <div class="footer-text">
+                    <p data-tr="Açık kaynak IoT çözümleri ile geleceğe katkı sağlıyoruz." data-en="Contributing to the future with open source IoT solutions." data-de="Mit Open-Source-IoT-Lösungen zur Zukunft beitragen.">
+                        Açık kaynak IoT çözümleri ile geleceğe katkı sağlıyoruz.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html" data-tr="Gizlilik" data-en="Privacy" data-de="Datenschutz">Privacy</a>
+                    <a href="license.html" data-tr="Lisans ve Kullanım" data-en="License and Terms" data-de="Lizenz und Nutzung">Lisans ve Kullanım</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js" defer></script>
+</body>
+</html>

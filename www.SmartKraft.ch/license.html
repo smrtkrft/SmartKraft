@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="SmartKraft Lisanslar - Açık Kaynak ve Emek Koruması Dengesi">
+    <meta name="theme-color" content="#00ff88">
+    
+    <title>SmartKraft - Lizenzen und Nutzung</title>
+    
+    <!-- Local Assets -->
+    <link rel="preload" href="assets/fonts/local-fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/fonts/local-fonts.css">
+    </noscript>
+    <link rel="preload" href="assets/icons/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/icons/all.min.css">
+    </noscript>
+    
+    <link href="assets/css/styles.css?v=1.5" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* License page uses privacy page design pattern */
+        .license-hero {
+            background: var(--bg-primary);
+            padding: 120px 0 40px;
+            text-align: center;
+        }
+        
+        .license-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .license-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        .license-content {
+            background: var(--bg-primary);
+            padding: 2rem 0 4rem;
+        }
+        
+        .license-content .container {
+            max-width: 800px;
+        }
+        
+        .license-section {
+            margin-bottom: 3rem;
+            padding: 0;
+        }
+        
+        .license-section h2 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .license-section h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin: 2rem 0 1rem;
+            font-weight: 500;
+        }
+        
+        .license-section p, .license-section li {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .license-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .license-section code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            color: var(--accent);
+        }
+        
+        .license-link {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .license-link:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Simple underlined highlight sections */
+        .highlight-summary {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin: 1.5rem 0;
+            display: inline-block;
+        }
+        
+        .highlight-summary strong {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .license-hero h1 {
+                font-size: 2rem;
+            }
+            .license-hero {
+                padding: 100px 0 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/icons/smartkraft-icon.png" alt="SmartKraft Logo" class="logo-img">
+                    <span>SmartKraft</span>
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li><a href="index.html#home" data-tr="Ana Sayfa" data-en="Home" data-de="Startseite">Ana Sayfa</a></li>
+                        <li><a href="index.html#about" data-tr="Hakkımızda" data-en="About" data-de="Über uns">Hakkımızda</a></li>
+                        <li><a href="index.html#products" data-tr="Ürünler" data-en="Products" data-de="Produkte">Ürünler</a></li>
+                        <li><a href="index.html#support" data-tr="Destek Ol" data-en="Support Us" data-de="Unterstütze uns">Destek Ol</a></li>
+                        <li><a href="index.html#contact" data-tr="İletişim" data-en="Contact" data-de="Kontakt">İletişim</a></li>
+                    </ul>
+                    
+                    <div class="lang-selector">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="tr">TR</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- License Hero Section -->
+    <section class="license-hero">
+        <div class="container">
+            <h1 data-tr="Lisanslar ve Kullanım Hakları" data-en="Licenses and Usage Rights" data-de="Lizenzen und Nutzungsrechte">Lizenzen und Nutzungsrechte</h1>
+            <p data-tr="Bilginin özgürleşmesi ve emeğin korunması arasındaki dengeyi nasıl kurduğumuzu öğrenin. Hangi içerikleri nasıl kullanabileceğiniz, hangi kurallara uymanız gerektiği hakkında detaylı rehber." data-en="Learn how we balance the liberation of knowledge with the protection of labor. A detailed guide on what content you can use and what rules you need to follow." data-de="Erfahren Sie, wie wir das Gleichgewicht zwischen der Befreiung des Wissens und dem Schutz der Arbeit schaffen. Ein detaillierter Leitfaden darüber, welche Inhalte Sie nutzen können und welche Regeln Sie befolgen müssen.">Erfahren Sie, wie wir das Gleichgewicht zwischen der Befreiung des Wissens und dem Schutz der Arbeit schaffen. Ein detaillierter Leitfaden darüber, welche Inhalte Sie nutzen können und welche Regeln Sie befolgen müssen.</p>
+        </div>
+    </section>
+
+    <!-- License Content -->
+    <section class="license-content">
+        <div class="container">
+            
+            <!-- Felsefemiz -->
+            <div class="license-section">
+                <h2 data-tr="Felsefemiz ve Yaklaşımımız" data-en="Our Philosophy and Approach" data-de="Unsere Philosophie und Herangehensweise">Unsere Philosophie und Herangehensweise</h2>
+                <p data-tr="SmartKraft olarak, bilginin ve gelişimin özgürce paylaşılması gerektiğine inanıyoruz. Açık kaynak felsefesi, teknolojinin demokratikleşmesi ve herkesin öğrenip geliştirebilmesi için temel bir araçtır. Ancak bu özgürlüğün, emek ve yaratıcılığın değerini koruyacak şekilde uygulanması gerektiğini de düşünüyoruz." data-en="As SmartKraft, we believe that knowledge and development should be shared freely. Open source philosophy is a fundamental tool for democratizing technology and enabling everyone to learn and develop. However, we also think this freedom should be applied in a way that protects the value of labor and creativity." data-de="Als SmartKraft glauben wir, dass Wissen und Entwicklung frei geteilt werden sollten. Die Open-Source-Philosophie ist ein grundlegendes Werkzeug zur Demokratisierung der Technologie und ermöglicht es jedem zu lernen und sich zu entwickeln. Wir denken jedoch auch, dass diese Freiheit so angewendet werden sollte, dass sie den Wert von Arbeit und Kreativität schützt.">Als SmartKraft glauben wir, dass <strong>Wissen und Entwicklung frei geteilt werden sollten</strong>. Die Open-Source-Philosophie ist ein grundlegendes Werkzeug zur Demokratisierung der Technologie und ermöglicht es jedem zu lernen und sich zu entwickeln. Wir denken jedoch auch, dass diese Freiheit so angewendet werden sollte, dass sie <strong>den Wert von Arbeit und Kreativität schützt</strong>.</p>
+                
+                <p data-tr="Bu nedenle farklı içerik türleri için farklı lisans stratejileri benimsiyor, hem paylaşımı teşvik ediyor hem de yaratıcı emeği koruyoruz. Amacımız, toplulukla birlikte büyürken kimliğimizi ve değerlerimizi de korumaktır." data-en="Therefore, we adopt different license strategies for different content types, both encouraging sharing and protecting creative labor. Our goal is to preserve our identity and values while growing together with the community." data-de="Daher verfolgen wir unterschiedliche Lizenzstrategien für verschiedene Inhaltstypen, fördern das Teilen und schützen gleichzeitig die kreative Arbeit. Unser Ziel ist es, unsere Identität und Werte zu bewahren, während wir gemeinsam mit der Community wachsen.">Daher verfolgen wir unterschiedliche Lizenzstrategien für verschiedene Inhaltstypen, fördern das Teilen und schützen gleichzeitig die kreative Arbeit. Unser Ziel ist es, unsere Identität und Werte zu bewahren, während wir gemeinsam mit der Community wachsen.</p>
+
+                <div class="highlight-summary">
+                    <span data-tr="Özetle: Kodlarımız tamamen açık, teknik bilgilerimiz paylaşıma açık, markamız ve kimliğimiz korunmalı. Öğrenin, geliştirin, paylaşın - ama SmartKraft kimliğine saygı gösterin." data-en="In summary: Our codes are completely open, our technical knowledge is open to sharing, our brand and identity must be protected. Learn, develop, share - but respect the SmartKraft identity." data-de="Zusammenfassung: Unsere Codes sind völlig offen, unser technisches Wissen ist zum Teilen verfügbar, unsere Marke und Identität müssen geschützt werden. Lernen, entwickeln, teilen - aber respektieren Sie die SmartKraft-Identität."><strong>Zusammenfassung:</strong> Unsere Codes sind völlig offen, unser technisches Wissen ist zum Teilen verfügbar, unsere Marke und Identität müssen geschützt werden. Lernen, entwickeln, teilen - aber respektieren Sie die SmartKraft-Identität.</span>
+                </div>
+            </div>
+
+            <!-- Açık Kaynak Kodlarımız -->
+            <div class="license-section">
+                <h2 data-translate="opensource-title">Açık Kaynak Kodlarımız</h2>
+                
+                <h3 data-translate="github-title">GitHub Repository'leri - AGPL 3.0 Lisansı</h3>
+                <p data-translate="github-description">GitHub'da yayınladığımız tüm kod <strong>AGPL 3.0 (GNU Affero General Public License)</strong> altında lisanslanmıştır. Bu güçlü bir copyleft lisansıdır ve şu hakları verir:</p>
+                
+                <ul>
+                    <li data-translate="agpl-rights-use"><strong>Kullanabilirsiniz:</strong> Kodu istediğiniz amaçla kullanabilirsiniz</li>
+                    <li data-translate="agpl-rights-modify"><strong>Değiştirebilirsiniz:</strong> Kodda istediğiniz değişiklikleri yapabilirsiniz</li>
+                    <li data-translate="agpl-rights-distribute"><strong>Dağıtabilirsiniz:</strong> Kodun kopyalarını başkalarıyla paylaşabilirsiniz</li>
+                    <li data-translate="agpl-rights-commercial"><strong>Ticari kullanabilirsiniz:</strong> Kodu ticari projelerinizde kullanabilirsiniz</li>
+                </ul>
+
+                <p data-translate="agpl-obligations-title"><strong>Karşılığında yapmanız gerekenler:</strong></p>
+                <ul>
+                    <li data-translate="agpl-obligations-source"><strong>Kaynak kodu paylaşın:</strong> Türev çalışmalarınızın kaynak kodunu da AGPL ile paylaşmalısınız</li>
+                    <li data-translate="agpl-obligations-license"><strong>Lisans bilgisini koruyun:</strong> Telif hakkı ve lisans bilgilerini muhafaza edin</li>
+                    <li data-translate="agpl-obligations-changes"><strong>Değişiklikleri belirtin:</strong> Yaptığınız değişiklikleri açıkça belirtin</li>
+                    <li data-translate="agpl-obligations-network"><strong>Ağ üzerinden kullanımda da paylaşın:</strong> Kodunuzu web servisi olarak sunuyorsanız da kaynak kodunu açmalısınız</li>
+                </ul>
+
+                <p data-translate="agpl-reasoning">Bu yaklaşımın nedeni basit: Bizim açık kaynak emeğimizden yararlanan herkesin, kendi katkılarını da toplulukla paylaşmasını istiyoruz. Böylece ekosistem büyür ve herkes kazanır.</p>
+
+                <p><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" class="license-link" data-translate="agpl-link">AGPL 3.0 Tam Lisans Metni</a></p>
+            </div>
+
+            <!-- Teknik İçerik ve Dokümantasyon -->
+            <div class="license-section">
+                <h2 data-translate="technical-title">Teknik İçerik ve Dokümantasyonlar</h2>
+                
+                <h3 data-translate="cc-title">Creative Commons BY-SA 4.0 Lisansı</h3>
+                <p data-translate="cc-description">Teknik yazılarımız, rehberlerimiz, şemalarımız ve dokümantasyonlarımız <strong>Creative Commons Attribution-ShareAlike 4.0</strong> lisansı ile paylaşılır. Bu lisans şu hakları verir:</p>
+
+                <ul>
+                    <li data-translate="cc-rights-share"><strong>Paylaşabilirsiniz:</strong> İçeriği her formatta kopyalayıp dağıtabilirsiniz</li>
+                    <li data-translate="cc-rights-adapt"><strong>Uyarlayabilirsiniz:</strong> İçeriği değiştirip geliştirebilirsiniz</li>
+                    <li data-translate="cc-rights-commercial"><strong>Ticari kullanabilirsiniz:</strong> İçeriği ticari amaçlarla da kullanabilirsiniz</li>
+                </ul>
+
+                <p data-translate="cc-obligations-title"><strong>Karşılığında yapmanız gerekenler:</strong></p>
+                <ul>
+                    <li data-translate="cc-obligations-attribution"><strong>Atıf yapın (Attribution):</strong> SmartKraft'ı kaynak olarak belirtin</li>
+                    <li data-translate="cc-obligations-sharealike"><strong>Aynı lisansla paylaşın (ShareAlike):</strong> Türev çalışmalarınızı da CC BY-SA ile lisanslayın</li>
+                    <li data-translate="cc-obligations-changes"><strong>Değişiklikleri belirtin:</strong> Orijinal içerikte değişiklik yaptıysanız bunu açık bir şekilde belirtin</li>
+                </ul>
+
+                <p data-translate="cc-reasoning">Bu yaklaşım, teknik bilginin serbestçe dolaşımını sağlarken, emeğimizin tanınmasını ve bilgi ekosisteminin büyümesini garanti eder.</p>
+
+                <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="license-link" data-translate="cc-link">CC BY-SA 4.0 Detayları</a></p>
+            </div>
+
+            <!-- Marka ve Kimlik Koruması -->
+            <div class="license-section">
+                <h2 data-translate="brand-title">Marka ve Kimlik Koruması</h2>
+                
+                <h3 data-translate="brand-smartkraft-title">SmartKraft Markası ve Logoları</h3>
+                <p data-translate="brand-protection-desc"><strong>"SmartKraft" adı, logosu ve görsel kimlik unsurları marka koruması altındadır.</strong> Bu, özgür yazılım felsefemizle çelişmez; aksine kimliğimizi koruyarak değerlerimizi sürdürmemizi sağlar.</p>
+
+                <p data-translate="brand-prohibited-title"><strong>İzinsiz yapamayacaklarınız:</strong></p>
+                <ul>
+                    <li data-translate="brand-prohibited-naming">Projenize "SmartKraft" adını vermek</li>
+                    <li data-translate="brand-prohibited-logo">SmartKraft logounu kendi ürününüzde kullanmak</li>
+                    <li data-translate="brand-prohibited-representation">SmartKraft adına konuşmak veya SmartKraft'ı temsil ettiğinizi ima etmek</li>
+                    <li data-translate="brand-prohibited-marketing">SmartKraft ile resmi bir bağlantınız varmış gibi pazarlama yapmak</li>
+                </ul>
+
+                <h3 data-translate="brand-design-title">Site Tasarımı ve İçerik Düzeni</h3>
+                <p data-translate="brand-design-desc">Web sitemizin tasarımı, düzeni ve özgün içerikleri telif hakkı koruması altındadır. Kodlarımızdan ilham alabilirsiniz, ancak <strong>sitemizin birebir kopyasını yapmamanızı</strong> rica ediyoruz. Yaratıcılığınızı kullanın, kendi tasarımınızı oluşturun.</p>
+
+                <div class="highlight-summary">
+                    <span data-translate="brand-permission-request"><strong>İzin Talep Etmek:</strong> SmartKraft markasını meşru bir amaçla (akademik çalışma, atıf, işbirliği önerisi gibi) kullanmak istiyorsanız, lütfen bizimle iletişime geçin. Makul taleplerle işbirliği yapmaktan mutluluk duyarız.</span>
+                </div>
+            </div>
+
+            <!-- Proje ve Ürün Atıfları -->
+            <div class="license-section">
+                <h2 data-translate="attribution-title">Proje ve Ürün Atıfları</h2>
+                
+                <h3 data-translate="attribution-users-title">SmartKraft Projelerinden Yararlananlar İçin</h3>
+                <p data-translate="attribution-users-desc">Kodlarımızı veya içeriklerimizi kullanarak bir proje geliştiriyorsanız, açık ve dürüst bir atıf yapmanızı bekliyoruz:</p>
+
+                <ul>
+                    <li data-translate="attribution-correct"><strong>Doğru atıf:</strong> "SmartKraft'ın [proje adı] projesinden faydalanılmıştır" şeklinde</li>
+                    <li data-translate="attribution-link"><strong>Kaynak linki:</strong> Mümkünse GitHub deposuna veya sitemize link verin</li>
+                    <li data-translate="attribution-compliance"><strong>Lisans uyumluluğu:</strong> İlgili lisans şartlarına uygun davranın</li>
+                </ul>
+
+                <h3 data-translate="attribution-collaboration-title">İşbirliği ve Ortaklık</h3>
+                <p data-translate="attribution-collaboration-desc">Projelerinizde SmartKraft teknolojilerini kullanıyorsanız ve bir işbirliği kurmak istiyorsanız, bundan mutluluk duyarız. <strong>Resmi ortaklık, sponsorluk veya endorsement</strong> durumları için önceden iletişime geçmeniz gerekir.</p>
+
+                <p data-translate="attribution-acceptable-title"><strong>Kabul edilebilir kullanımlar:</strong></p>
+                <ul>
+                    <li data-translate="attribution-acceptable-library">"SmartKraft IoT kütüphanesi kullanılarak geliştirilmiştir"</li>
+                    <li data-translate="attribution-acceptable-docs">"SmartKraft'ın dokümantasyonlarından yararlanılmıştır"</li>
+                    <li data-translate="attribution-acceptable-ecosystem">"SmartKraft açık kaynak ekosisteminin bir parçasıdır"</li>
+                </ul>
+
+                <p data-translate="attribution-permission-title"><strong>İzin gerektiren kullanımlar:</strong></p>
+                <ul>
+                    <li data-translate="attribution-permission-supported">"SmartKraft tarafından desteklenmektedir"</li>
+                    <li data-translate="attribution-permission-partner">"SmartKraft resmi ortağıdır"</li>
+                    <li data-translate="attribution-permission-recommended">"SmartKraft'ın önerdiği çözümdür"</li>
+                </ul>
+            </div>
+
+            <!-- Sorumluluk ve Garanti Reddi -->
+            <div class="license-section">
+                <h2 data-translate="liability-title">Sorumluluk ve Garanti Reddi</h2>
+                
+                <h3 data-translate="website-content-title">Web Sitesi İçeriklerinin Kullanımı</h3>
+                <p data-translate="website-content-desc">Bu web sitesindeki bilgiler, kodlar ve dokümantasyonlar "olduğu gibi" sunulmaktadır. SmartKraft, bu içeriklerin kullanımından doğabilecek herhangi bir sorun, zarar veya kayıptan sorumlu değildir.</p>
+
+                <p data-translate="usage-risks-title"><strong>Kullanım riskleri ve sorumluluklar:</strong></p>
+                <ul>
+                    <li data-translate="risk-technical"><strong>Teknik doğruluk:</strong> İçeriklerin teknik doğruluğunu, güncelliğini veya eksiksizliğini garanti etmiyoruz</li>
+                    <li data-translate="risk-production"><strong>Üretim kullanımı:</strong> Kodları ve yöntemleri üretim ortamında kullanmadan önce kendi testlerinizi yapın</li>
+                    <li data-translate="risk-security"><strong>Güvenlik:</strong> Güvenlik açısından kendi değerlendirmelerinizi yapmanız ve gerekli önlemleri almanız sorumluluğunuzdadır</li>
+                    <li data-translate="risk-compliance"><strong>Uyumluluk:</strong> Yerel yasalar, endüstri standartları ve düzenlemelerle uyumluluğu sağlamak size aittir</li>
+                    <li data-translate="risk-data-loss"><strong>Veri kaybı:</strong> İçeriklerimizi kullanırken veri yedekleme ve koruma sorumluluğu kullanıcıya aittir</li>
+                </ul>
+
+                <h3 data-translate="service-interruptions-title">Hizmet Kesintileri ve Değişiklikler</h3>
+                <p data-translate="service-interruptions-desc">Web sitemiz, içeriklerimiz ve hizmetlerimiz herhangi bir zamanda değişebilir, güncellenebilir veya geçici olarak erişilemez hale gelebilir. Bu durumlardan kaynaklanan sorunlardan sorumlu değiliz.</p>
+
+                <h3 data-translate="external-links-title">Dış Bağlantılar ve Referanslar</h3>
+                <p data-translate="external-links-desc">Sitemizde yer alan GitHub, PayPal, Patreon ve diğer harici bağlantılar yalnızca bilgi ve kolaylık amaçlıdır. Bu sitelerin içeriği, politikaları veya hizmetleri üzerinde kontrolümüz yoktur ve bunlardan kaynaklanan sorunlardan sorumlu değiliz.</p>
+
+                <h3 data-translate="electronic-products-title">Elektronik Ürünler ve Teknik Montaj</h3>
+                <p data-translate="electronic-products-desc">IoT projelerimiz, elektronik bileşenler, elektrikli cihazlar ve montaj gerektiren ürünler içerebilir. Bu tür projeleri uygularken:</p>
+
+                <ul>
+                    <li data-translate="electrical-knowledge-req"><strong>Elektrik bilgisi gereksinimi:</strong> Elektrikli bileşenlerin montajı için yeterli elektrik bilgisine sahip olmanız şarttır</li>
+                    <li data-translate="safety-priority"><strong>Güvenlik önceliği:</strong> Elektrik montajı yaparken tüm güvenlik kurallarına uymalı, gerektiğinde uzman yardımı almalısınız</li>
+                    <li data-translate="local-regulations"><strong>Yerel yönetmelikler:</strong> Elektrik işleri için yerel yasalar ve yönetmeliklere uygun hareket etmelisiniz</li>
+                    <li data-translate="product-manuals"><strong>Ürün kılavuzları:</strong> Her elektronik bileşen ve ürünün kendi kullanım kılavuzu, kurulum talimatları ve güvenlik uyarıları vardır - bunlara mutlaka uyun</li>
+                    <li data-translate="technical-competence"><strong>Teknik yeterlilik:</strong> Projelerimizi uygulamadan önce gerekli teknik bilgi ve becerilere sahip olduğunuzdan emin olun</li>
+                    <li data-translate="risk-acceptance"><strong>Risk kabülü:</strong> Elektronik montaj ve elektrik işlerinde yaralanma, yangın, elektrik çarpması gibi riskler vardır - bu riskleri kabul ederek çalışırsınız</li>
+                </ul>
+
+                <p data-translate="special-warnings-title"><strong>Özel uyarılar:</strong></p>
+                <ul>
+                    <li data-translate="warning-mains-voltage">Ana şebeke voltajı (220V/110V) ile çalışan projeler için mutlaka uzman desteği alın</li>
+                    <li data-translate="warning-lithium-battery">Lityum pil kullanan projelerde yangın ve patlama risklerine dikkat edin</li>
+                    <li data-translate="warning-high-current">Yüksek akım çeken motorlar ve güç kaynakları için uygun soğutma ve koruma devreleri kullanın</li>
+                    <li data-translate="warning-wireless">Kablosuz iletişim modülleri için frekans düzenlemelerine uyun</li>
+                </ul>
+
+                <div class="highlight-summary">
+                    <span data-translate="important-warning"><strong>Önemli uyarı:</strong> İçeriklerimizi kullanmadan önce kendi araştırmanızı yapın, test edin ve profesyonel tavsiye alın. Özellikle kritik sistemlerde ve üretim ortamlarında kullanım öncesi kapsamlı değerlendirme yapılmalıdır.</span>
+                </div>
+            </div>
+
+            <!-- Genel Kullanım Şartları -->
+            <div class="license-section">
+                <h2 data-translate="terms-title">Genel Kullanım Şartları</h2>
+                
+                <h3 data-translate="acceptance-age-title">Kabul ve Yaş Sınırı</h3>
+                <p data-translate="acceptance-desc">Bu web sitesini kullanarak, burada belirtilen tüm şart ve koşulları kabul etmiş sayılırsınız. Şartları kabul etmiyorsanız siteyi kullanmayınız.</p>
+                
+                <p data-translate="age-requirement">Yaş gereksinimi: 16 yaşından küçükseniz, bu siteyi yalnızca ebeveyn veya vasi onayı ile kullanabilirsiniz. SmartKraft çocukları hedefleyen içerik sunmaz ve çocuklardan bilerek veri toplamaz.</p>
+
+                <h3 data-translate="usage-rules-title">Kullanım Kuralları ve Yasak Faaliyetler</h3>
+                <p data-translate="usage-rules-desc">Sitemizi kullanırken aşağıdaki kurallara uymanız zorunludur:</p>
+
+                <ul>
+                    <li data-translate="rule-legal-use"><strong>Yasal kullanım:</strong> Siteyi yasadışı amaçlarla kullanamazsınız</li>
+                    <li data-translate="rule-security"><strong>Güvenlik ihlali yasağı:</strong> Sistem güvenliğini test etmek, delmek veya bozmak yasaktır</li>
+                    <li data-translate="rule-abuse"><strong>Kötüye kullanım yasağı:</strong> Spam, kötü amaçlı yazılım yayma veya sistemleri aşırı yükleme yasaktır</li>
+                    <li data-translate="rule-others-rights"><strong>Başkalarının hakları:</strong> Diğer kullanıcıların ve üçüncü tarafların haklarına saygı göstermelisiniz</li>
+                    <li data-translate="rule-automated-access"><strong>Otomatik erişim sınırı:</strong> Aşırı bot kullanımı veya site performansını olumsuz etkileyen otomasyonlar yasaktır</li>
+                    <li data-translate="rule-content-integrity"><strong>İçerik bütünlüğü:</strong> Site içeriklerini değiştirmeye veya tahrif etmeye yönelik girişimler yasaktır</li>
+                </ul>
+
+                <h3 data-translate="service-changes-title">Hizmet Değişiklikleri ve Kesintiler</h3>
+                <p data-translate="service-changes-desc">SmartKraft, web sitesini ve sunduğu hizmetleri herhangi bir zamanda değiştirme, güncelleme, geçici olarak durdurma veya tamamen sonlandırma hakkını saklı tutar. Bu değişiklikler için önceden bildirim yükümlülüğümüz yoktur.</p>
+
+                <p data-translate="service-interruptions-detail"><strong>Hizmet kesintileri:</strong> Teknik bakım, güvenlik güncellemeleri veya altyapı çalışmaları nedeniyle siteye erişim geçici olarak kesintiye uğrayabilir. Bu durumlardan kaynaklanan sorunlardan sorumlu değiliz.</p>
+
+                <h3 data-translate="ip-violation-title">Fikri Mülkiyet İhlali Bildirimi</h3>
+                <p data-translate="ip-violation-notice">Eğer sitemizde fikri mülkiyet haklarınızı ihlal eden bir içerik bulduğunuzu düşünüyorsanız, lütfen detaylı bilgilerle birlikte <a href="mailto:info@smartkraft.ch" class="license-link">info@smartkraft.ch</a> adresine yazın. İhlal iddialarını inceler ve gerekli işlemleri yaparız.</p>
+
+                <h3 data-translate="jurisdiction-title">Yargı Yetkisi ve Uygulanacak Hukuk</h3>
+                <p data-translate="jurisdiction-notice">Bu kullanım şartları <strong>İsviçre hukuku</strong> uyarınca yorumlanır ve uygulanır. Bu şartlardan veya site kullanımından kaynaklanan uyuşmazlıklarda <strong>İsviçre mahkemeleri</strong> yetkilidir.</p>
+
+                <p data-translate="severability">Eğer bu şartların herhangi bir bölümü geçersiz sayılırsa, diğer bölümler geçerliliğini korur.</p>
+
+                <div class="highlight-summary">
+                    <span data-translate="final-note">
+                        <strong>Son not:</strong> Bu kullanım şartları sitemizi kullandığınız andan itibaren geçerlidir. Düzenli olarak gözden geçirilmeli ve güncellenmiş hallerine uyulmalıdır.
+                    </span>
+                </div>
+            </div>
+
+            <!-- İletişim ve İzin Talepleri -->
+            <div class="license-section">
+                <h2 data-translate="contact-requests-title">İletişim ve İzin Talepleri</h2>
+                
+                <p data-translate="contact-requests-intro">Lisanslarımız hakkında sorularınız varsa veya özel bir izin talep etmek istiyorsanız, lütfen bizimle iletişime geçin. Açık kaynak topluluğunun bir parçası olarak, makul talepleri değerlendirmeye ve işbirliği yapmaya her zaman açığız.</p>
+
+                <p data-translate="permission-cases-title"><strong>İzin talep edebileceğiniz durumlar:</strong></p>
+                <ul>
+                    <li data-translate="permission-case-1">SmartKraft markasını akademik veya eğitim amaçlı kullanım</li>
+                    <li data-translate="permission-case-2">Ticari projeler için özel lisans anlaşmaları</li>
+                    <li data-translate="permission-case-3">İşbirliği veya ortaklık önerileri</li>
+                    <li data-translate="permission-case-4">Medya ve basın için marka kullanımı</li>
+                </ul>
+
+                <p data-translate="request-requirements-title"><strong>Talebinizde belirtmeniz gerekenler:</strong></p>
+                <ul>
+                    <li data-translate="requirement-1">Kullanım amacınız ve kapsamı</li>
+                    <li data-translate="requirement-2">Hangi materyalleri kullanmak istediğiniz</li>
+                    <li data-translate="requirement-3">Proje veya organizasyon detayları</li>
+                    <li data-translate="requirement-4">Kullanım süresi (geçici/kalıcı)</li>
+                </ul>
+
+                <div class="contact-info">
+                    <h3 data-translate="contact-title">İletişim</h3>
+                    <p data-translate="contact-license-matters">Lisans konularında: <a href="mailto:info@smartkraft.ch">info@smartkraft.ch</a></p>
+                    <p data-translate="contact-response-time">Genellikle 2-3 iş günü içinde yanıtlıyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Son Güncellemeler -->
+            <div class="license-section">
+                <h2 data-translate="updates-title">Güncelleme ve Yürürlük</h2>
+                
+                <p data-translate="updates-intro">Bu lisans ve kullanım rehberi, projelerimizin gelişimine paralel olarak güncellenebilir. Önemli değişikliklerde, mümkün olduğunca topluluktan geri bildirim almaya çalışırız.</p>
+
+                <p data-translate="last-update"><strong>Son güncelleme:</strong> 14 Ağustos 2025</p>
+                <p data-translate="current-version"><strong>Geçerli versiyon:</strong> 1.0</p>
+
+                <p data-translate="effective-date">Bu sayfada yapılan değişiklikler, yayınlandığı tarihten itibaren geçerlidir. Mevcut kullanımlarınız için ani değişiklik olmayacak, geçiş süresi tanınacaktır.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/icons/smartkraft-icon.png" alt="SmartKraft Logo" class="footer-logo-img">
+                    <span>SmartKraft</span>
+                </div>
+                <div class="footer-text">
+                    <p data-tr="Açık kaynak IoT çözümleri ile geleceğe katkı sağlıyoruz." data-en="Contributing to the future with open source IoT solutions." data-de="Zur Zukunft beitragen mit Open-Source-IoT-Lösungen.">Zur Zukunft beitragen mit Open-Source-IoT-Lösungen.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html" data-tr="Gizlilik" data-en="Privacy" data-de="Datenschutz">Datenschutz</a>
+                    <a href="license.html" data-tr="Lisans ve Kullanım" data-en="License and Usage" data-de="Lizenz und Nutzung">Lizenz und Nutzung</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/license-translations.js" defer></script>
+</body>
+</html>
